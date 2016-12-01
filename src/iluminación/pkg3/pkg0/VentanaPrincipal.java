@@ -34,6 +34,8 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 public void ConfigInicial(){
     //Selecciona por defecto las opciones al iniciar el programa
         optDirecta.setSelected(true);
+        optDebil.setSelected(true);
+        optOptimo.setSelected(true);
 
 }
     /**
@@ -46,6 +48,8 @@ public void ConfigInicial(){
     private void initComponents() {
 
         grupoSistIlum = new javax.swing.ButtonGroup();
+        grupoEnsuciamiento = new javax.swing.ButtonGroup();
+        grupoMantenimiento = new javax.swing.ButtonGroup();
         panelIngresoDatos = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -62,6 +66,13 @@ public void ConfigInicial(){
         optIndirecta = new javax.swing.JRadioButton();
         optDifusa = new javax.swing.JRadioButton();
         optSemidirecta = new javax.swing.JRadioButton();
+        panelEnsuciamiento = new javax.swing.JPanel();
+        optDebil = new javax.swing.JRadioButton();
+        optMediano = new javax.swing.JRadioButton();
+        optFuerte = new javax.swing.JRadioButton();
+        jPanel1 = new javax.swing.JPanel();
+        optOptimo = new javax.swing.JRadioButton();
+        optSinMantenimiento = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -161,7 +172,7 @@ public void ConfigInicial(){
                     .addComponent(optIndirecta)
                     .addComponent(optDifusa)
                     .addComponent(optSemidirecta))
-                .addContainerGap(107, Short.MAX_VALUE))
+                .addContainerGap(47, Short.MAX_VALUE))
         );
         panelSistemaIluminaciónLayout.setVerticalGroup(
             panelSistemaIluminaciónLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -177,6 +188,75 @@ public void ConfigInicial(){
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        panelEnsuciamiento.setBorder(javax.swing.BorderFactory.createTitledBorder("Ensuciamiento"));
+
+        grupoEnsuciamiento.add(optDebil);
+        optDebil.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        optDebil.setText("Debil");
+
+        grupoEnsuciamiento.add(optMediano);
+        optMediano.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        optMediano.setText("Mediano");
+
+        grupoEnsuciamiento.add(optFuerte);
+        optFuerte.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        optFuerte.setText("Fuerte");
+
+        javax.swing.GroupLayout panelEnsuciamientoLayout = new javax.swing.GroupLayout(panelEnsuciamiento);
+        panelEnsuciamiento.setLayout(panelEnsuciamientoLayout);
+        panelEnsuciamientoLayout.setHorizontalGroup(
+            panelEnsuciamientoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelEnsuciamientoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelEnsuciamientoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(optDebil)
+                    .addComponent(optMediano)
+                    .addComponent(optFuerte))
+                .addContainerGap(61, Short.MAX_VALUE))
+        );
+        panelEnsuciamientoLayout.setVerticalGroup(
+            panelEnsuciamientoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelEnsuciamientoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(optDebil)
+                .addGap(18, 18, 18)
+                .addComponent(optMediano)
+                .addGap(18, 18, 18)
+                .addComponent(optFuerte)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Mantenimiento"));
+
+        grupoMantenimiento.add(optOptimo);
+        optOptimo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        optOptimo.setText("Mantenimiento óptimo");
+
+        grupoMantenimiento.add(optSinMantenimiento);
+        optSinMantenimiento.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        optSinMantenimiento.setText("Sin Mantenimiento programado");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(optOptimo)
+                    .addComponent(optSinMantenimiento))
+                .addContainerGap(141, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(optOptimo)
+                .addGap(26, 26, 26)
+                .addComponent(optSinMantenimiento)
+                .addContainerGap(35, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout panelSeleccionLayout = new javax.swing.GroupLayout(panelSeleccion);
         panelSeleccion.setLayout(panelSeleccionLayout);
         panelSeleccionLayout.setHorizontalGroup(
@@ -184,14 +264,21 @@ public void ConfigInicial(){
             .addGroup(panelSeleccionLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(panelSistemaIluminación, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(353, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(panelEnsuciamiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelSeleccionLayout.setVerticalGroup(
             panelSeleccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelSeleccionLayout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addComponent(panelSistemaIluminación, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(165, Short.MAX_VALUE))
+                .addContainerGap()
+                .addGroup(panelSeleccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(panelSistemaIluminación, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(panelEnsuciamiento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(168, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -314,15 +401,24 @@ public void ConfigInicial(){
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCalcular;
+    private javax.swing.ButtonGroup grupoEnsuciamiento;
+    private javax.swing.ButtonGroup grupoMantenimiento;
     private javax.swing.ButtonGroup grupoSistIlum;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JRadioButton optDebil;
     private javax.swing.JRadioButton optDifusa;
     private javax.swing.JRadioButton optDirecta;
+    private javax.swing.JRadioButton optFuerte;
     private javax.swing.JRadioButton optIndirecta;
+    private javax.swing.JRadioButton optMediano;
+    private javax.swing.JRadioButton optOptimo;
     private javax.swing.JRadioButton optSemidirecta;
+    private javax.swing.JRadioButton optSinMantenimiento;
+    private javax.swing.JPanel panelEnsuciamiento;
     private javax.swing.JPanel panelIngresoDatos;
     private javax.swing.JPanel panelSeleccion;
     private javax.swing.JPanel panelSistemaIluminación;
