@@ -34,6 +34,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        grupoSistIlum = new javax.swing.ButtonGroup();
         panelIngresoDatos = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -44,6 +45,12 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         txtAlturaTot = new javax.swing.JTextField();
         txtAlturaTW = new javax.swing.JTextField();
         btnCalcular = new javax.swing.JButton();
+        panelSeleccion = new javax.swing.JPanel();
+        panelSistemaIluminación = new javax.swing.JPanel();
+        optDirecta = new javax.swing.JRadioButton();
+        optIndirecta = new javax.swing.JRadioButton();
+        optDifusa = new javax.swing.JRadioButton();
+        optSemidirecta = new javax.swing.JRadioButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -112,6 +119,70 @@ public class VentanaPrincipal extends javax.swing.JFrame {
             }
         });
 
+        panelSeleccion.setBorder(javax.swing.BorderFactory.createTitledBorder("Seleccione las opciones que se ajusten a su espacio"));
+
+        panelSistemaIluminación.setBorder(javax.swing.BorderFactory.createTitledBorder("Sistema de iluminación"));
+
+        grupoSistIlum.add(optDirecta);
+        optDirecta.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        optDirecta.setText("Directa");
+
+        grupoSistIlum.add(optIndirecta);
+        optIndirecta.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        optIndirecta.setText("Indirecta");
+
+        grupoSistIlum.add(optDifusa);
+        optDifusa.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        optDifusa.setText("Difusa");
+
+        grupoSistIlum.add(optSemidirecta);
+        optSemidirecta.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        optSemidirecta.setText("Semidirecta");
+
+        javax.swing.GroupLayout panelSistemaIluminaciónLayout = new javax.swing.GroupLayout(panelSistemaIluminación);
+        panelSistemaIluminación.setLayout(panelSistemaIluminaciónLayout);
+        panelSistemaIluminaciónLayout.setHorizontalGroup(
+            panelSistemaIluminaciónLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelSistemaIluminaciónLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelSistemaIluminaciónLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(optDirecta)
+                    .addComponent(optIndirecta)
+                    .addComponent(optDifusa)
+                    .addComponent(optSemidirecta))
+                .addContainerGap(107, Short.MAX_VALUE))
+        );
+        panelSistemaIluminaciónLayout.setVerticalGroup(
+            panelSistemaIluminaciónLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelSistemaIluminaciónLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(optDirecta)
+                .addGap(3, 3, 3)
+                .addComponent(optSemidirecta)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(optIndirecta)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(optDifusa)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout panelSeleccionLayout = new javax.swing.GroupLayout(panelSeleccion);
+        panelSeleccion.setLayout(panelSeleccionLayout);
+        panelSeleccionLayout.setHorizontalGroup(
+            panelSeleccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelSeleccionLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(panelSistemaIluminación, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(353, Short.MAX_VALUE))
+        );
+        panelSeleccionLayout.setVerticalGroup(
+            panelSeleccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelSeleccionLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(panelSistemaIluminación, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(165, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -124,16 +195,21 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(124, 124, 124)
                         .addComponent(btnCalcular)))
-                .addContainerGap(544, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(panelSeleccion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(29, 29, 29)
-                .addComponent(panelIngresoDatos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
-                .addComponent(btnCalcular)
-                .addContainerGap(303, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(panelIngresoDatos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(35, 35, 35)
+                        .addComponent(btnCalcular))
+                    .addComponent(panelSeleccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(242, Short.MAX_VALUE))
         );
 
         pack();
@@ -203,11 +279,18 @@ public class VentanaPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCalcular;
+    private javax.swing.ButtonGroup grupoSistIlum;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JRadioButton optDifusa;
+    private javax.swing.JRadioButton optDirecta;
+    private javax.swing.JRadioButton optIndirecta;
+    private javax.swing.JRadioButton optSemidirecta;
     private javax.swing.JPanel panelIngresoDatos;
+    private javax.swing.JPanel panelSeleccion;
+    private javax.swing.JPanel panelSistemaIluminación;
     private javax.swing.JTextField txtAlturaTW;
     private javax.swing.JTextField txtAlturaTot;
     private javax.swing.JTextField txtAncho;
