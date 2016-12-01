@@ -17,14 +17,25 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     double Largo;           //Largo del espacio - Ingresado por el usuario [m]
     double AlturaTot;       //Altura total del espacio - Ingresado por el usuario [m]
     double AlturaTw;        //Altura del plano de trabajo - Ingresado por el usuario [m]
+    double h;               //Altura de suspensión de las luminarias - Entre tw y plano de lumianrias [m]
+    double k;               //Indice del local 
+    double d;               //Distancia del plano de luminarias al techo
 
     /**
      * Creates new form VentanaPrincipal
      */
     public VentanaPrincipal() {
         initComponents();
+        ConfigInicial();
+        
     }
+    
+    //Método para crear y ajustar la ventana principal: Selecciona opciones por defecto y llena los ComboBox
+public void ConfigInicial(){
+    //Selecciona por defecto las opciones al iniciar el programa
+        optDirecta.setSelected(true);
 
+}
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -237,6 +248,30 @@ public class VentanaPrincipal extends javax.swing.JFrame {
            info=info+"Largo: "+Largo+"\n";
            info=info+"Altura total: "+AlturaTot+"\n";
            info=info+"Altura del plano de trabajo: "+AlturaTw+"\n";
+           
+           //calcula la altura de suspension y el indice del local
+       if(optDirecta.isSelected()){
+            h=0.8*(AlturaTot-AlturaTw);
+            k=(Ancho*Largo)/(h*(Ancho+Largo));
+            info=info+"K: "+k+"\n";
+            info=info+"h: "+h+"\n";
+       } else if(optSemidirecta.isSelected()){
+            h=0.8*(AlturaTot-AlturaTw);
+            k=(Ancho*Largo)/(h*(Ancho+Largo));
+            info=info+"K: "+k+"\n";
+            info=info+"h: "+h+"\n";
+       } else if(optDifusa.isSelected()){
+            h=0.8*(AlturaTot-AlturaTw);
+            k=(Ancho*Largo)/(h*(Ancho+Largo));
+            info=info+"K: "+k+"\n";
+            info=info+"h: "+h+"\n";
+       } else if(optIndirecta.isSelected()){
+            d=0.25*(AlturaTot-AlturaTw);
+            k=(3*Ancho*Largo)/(2*(h+AlturaTw)*(Ancho+Largo));
+            info=info+"K: "+k+"\n";
+            info=info+"d: "+d+"\n";
+       }
+       
            
            JOptionPane.showMessageDialog(null,info);
        }
