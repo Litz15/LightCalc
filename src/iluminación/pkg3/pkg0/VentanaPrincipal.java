@@ -5,11 +5,18 @@
  */
 package iluminación.pkg3.pkg0;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author hp
  */
 public class VentanaPrincipal extends javax.swing.JFrame {
+    
+    double Ancho;           //Ancho del espacio - Ingresado por el usuario [m]
+    double Largo;           //Largo del espacio - Ingresado por el usuario [m]
+    double AlturaTot;       //Altura total del espacio - Ingresado por el usuario [m]
+    double AlturaTw;        //Altura del plano de trabajo - Ingresado por el usuario [m]
 
     /**
      * Creates new form VentanaPrincipal
@@ -27,31 +34,137 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
+        panelIngresoDatos = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        txtAncho = new javax.swing.JTextField();
+        txtLargo = new javax.swing.JTextField();
+        txtAlturaTot = new javax.swing.JTextField();
+        txtAlturaTW = new javax.swing.JTextField();
+        btnCalcular = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setText("jButton1");
+        panelIngresoDatos.setBorder(javax.swing.BorderFactory.createTitledBorder("Ingrese las dimensiones del espacio"));
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel1.setText("Ancho:");
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel2.setText("Largo:");
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel3.setText("Altura total:");
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel4.setText("Altura plano de trabajo:");
+
+        javax.swing.GroupLayout panelIngresoDatosLayout = new javax.swing.GroupLayout(panelIngresoDatos);
+        panelIngresoDatos.setLayout(panelIngresoDatosLayout);
+        panelIngresoDatosLayout.setHorizontalGroup(
+            panelIngresoDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelIngresoDatosLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(panelIngresoDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelIngresoDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jLabel4)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.LEADING))
+                    .addComponent(jLabel3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
+                .addGroup(panelIngresoDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txtAncho)
+                    .addComponent(txtLargo)
+                    .addComponent(txtAlturaTot)
+                    .addComponent(txtAlturaTW, javax.swing.GroupLayout.DEFAULT_SIZE, 71, Short.MAX_VALUE))
+                .addGap(38, 38, 38))
+        );
+        panelIngresoDatosLayout.setVerticalGroup(
+            panelIngresoDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelIngresoDatosLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(panelIngresoDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelIngresoDatosLayout.createSequentialGroup()
+                        .addGroup(panelIngresoDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelIngresoDatosLayout.createSequentialGroup()
+                                .addGroup(panelIngresoDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel1)
+                                    .addComponent(txtAncho, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel2))
+                            .addComponent(txtLargo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel3))
+                    .addComponent(txtAlturaTot, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(panelIngresoDatosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel4)
+                    .addComponent(txtAlturaTW, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(27, 27, 27))
+        );
+
+        btnCalcular.setText("Calcular");
+        btnCalcular.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCalcularActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(172, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(155, 155, 155))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(panelIngresoDatos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(124, 124, 124)
+                        .addComponent(btnCalcular)))
+                .addContainerGap(544, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(122, 122, 122)
-                .addComponent(jButton1)
-                .addContainerGap(155, Short.MAX_VALUE))
+                .addGap(29, 29, 29)
+                .addComponent(panelIngresoDatos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(35, 35, 35)
+                .addComponent(btnCalcular)
+                .addContainerGap(303, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcularActionPerformed
+        
+        String info=""; //String que va a contener los datos ingresados para
+       // Verifica que se hayan digitado las dimensiones del espacio
+       //asigna las variables si se han digitado los valores
+       if(txtAncho.getText().equals("")){
+       JOptionPane.showMessageDialog(null,"Digite el ancho de su espacio");
+       } else if(txtLargo.getText().equals("")){
+         JOptionPane.showMessageDialog(null,"Digite el Largo de su espacio");
+       } else if(txtAlturaTot.getText().equals("")){
+         JOptionPane.showMessageDialog(null,"Digite la Altura de su espacio");
+       }else if(txtAlturaTW.getText().equals("")){
+         JOptionPane.showMessageDialog(null,"Digite la altura de su plano de trabajo");
+       } else{
+           Ancho=Double.parseDouble(txtAncho.getText());
+           Largo=Double.parseDouble(txtLargo.getText());
+           AlturaTot=Double.parseDouble(txtAlturaTot.getText());
+           AlturaTw=Double.parseDouble(txtAlturaTW.getText());
+           info="Ancho: "+Ancho+"\n";
+           info=info+"Largo: "+Largo+"\n";
+           info=info+"Altura total: "+AlturaTot+"\n";
+           info=info+"Altura del plano de trabajo: "+AlturaTw+"\n";
+           
+           JOptionPane.showMessageDialog(null,info);
+       }
+    }//GEN-LAST:event_btnCalcularActionPerformed
 
     /**
      * @param args the command line arguments
@@ -89,6 +202,15 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnCalcular;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JPanel panelIngresoDatos;
+    private javax.swing.JTextField txtAlturaTW;
+    private javax.swing.JTextField txtAlturaTot;
+    private javax.swing.JTextField txtAncho;
+    private javax.swing.JTextField txtLargo;
     // End of variables declaration//GEN-END:variables
 }
