@@ -20,6 +20,7 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     double h;               //Altura de suspensión de las luminarias - Entre tw y plano de lumianrias [m]
     double k;               //Indice del local 
     double d;               //Distancia del plano de luminarias al techo
+    double M;               //Factor de mantenimiento
 
     /**
      * Creates new form VentanaPrincipal
@@ -38,6 +39,150 @@ public void ConfigInicial(){
         optOptimo.setSelected(true);
 
 }
+
+ public void FactorDeMantenimiento(){
+     if (cboLuminaria.getSelectedIndex()==0){
+           if(optDebil.isSelected()){
+                if(optOptimo.isSelected()){
+                M=0.87;
+                } else {
+                    M=0.58;
+                }
+           }else if(optMediano.isSelected()){
+                if(optOptimo.isSelected()){
+                M=0.8;
+                } else {
+                    M=0.53;
+                }
+           } else if(optFuerte.isSelected()){
+                if(optOptimo.isSelected()){
+                M=0.74;
+                } else {
+                    M=0.50;
+                }
+           }
+        } else if (cboLuminaria.getSelectedIndex()==1){
+           if(optDebil.isSelected()){
+                if(optOptimo.isSelected()){
+                M=0.95;
+                } else {
+                    M=0.64;
+                }
+           }else if(optMediano.isSelected()){
+                if(optOptimo.isSelected()){
+                M=0.87;
+                } else {
+                    M=0.59;
+                }
+           } else if(optFuerte.isSelected()){
+                if(optOptimo.isSelected()){
+                M=0.8;
+                } else {
+                    M=0.55;
+                }
+           }
+        }else if (cboLuminaria.getSelectedIndex()==2){
+           if(optDebil.isSelected()){
+                if(optOptimo.isSelected()){
+                M=0.835;
+                } else {
+                    M=0.545;
+                }
+           }else if(optMediano.isSelected()){
+                if(optOptimo.isSelected()){
+                M=0.77;
+                } else {
+                    M=0.515;
+                }
+           } else if(optFuerte.isSelected()){
+                if(optOptimo.isSelected()){
+                M=0.615;
+                } else {
+                    M=0.48;
+                }
+           }
+        } else if (cboLuminaria.getSelectedIndex()==3){
+           if(optDebil.isSelected()){
+                if(optOptimo.isSelected()){
+                M=0.815;
+                } else {
+                    M=0.53;
+                }
+           }else if(optMediano.isSelected()){
+                if(optOptimo.isSelected()){
+                M=0.755;
+                } else {
+                    M=0.505;
+                }
+           } else if(optFuerte.isSelected()){
+                if(optOptimo.isSelected()){
+                M=0.70;
+                } else {
+                    M=0.47;
+                }
+           }
+        } else if (cboLuminaria.getSelectedIndex()==4){
+           if(optDebil.isSelected()){
+                if(optOptimo.isSelected()){
+                M=0.83;
+                } else {
+                    M=0.56;
+                }
+           }else if(optMediano.isSelected()){
+                if(optOptimo.isSelected()){
+                M=0.77;
+                } else {
+                    M=0.51;
+                }
+           } else if(optFuerte.isSelected()){
+                if(optOptimo.isSelected()){
+                M=0.71;
+                } else {
+                    M=0.48;
+                }
+           }
+        } else if (cboLuminaria.getSelectedIndex()==5){
+           if(optDebil.isSelected()){
+                if(optOptimo.isSelected()){
+                M=0.785;
+                } else {
+                    M=0.52;
+                }
+           }else if(optMediano.isSelected()){
+                if(optOptimo.isSelected()){
+                M=0.725;
+                } else {
+                    M=0.49;
+                }
+           } else if(optFuerte.isSelected()){
+                if(optOptimo.isSelected()){
+                M=0.68;
+                } else {
+                    M=0.45;
+                }
+           }
+        } else if (cboLuminaria.getSelectedIndex()==6){
+           if(optDebil.isSelected()){
+                if(optOptimo.isSelected()){
+                M=0.88;
+                } else {
+                    M=0.74;
+                }
+           }else if(optMediano.isSelected()){
+                if(optOptimo.isSelected()){
+                M=0.82;
+                } else {
+                    M=0.7;
+                }
+           } else if(optFuerte.isSelected()){
+                if(optOptimo.isSelected()){
+                M=0.78;
+                } else {
+                    M=0.66;
+                }
+           }
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -73,6 +218,8 @@ public void ConfigInicial(){
         jPanel1 = new javax.swing.JPanel();
         optOptimo = new javax.swing.JRadioButton();
         optSinMantenimiento = new javax.swing.JRadioButton();
+        panelLuminaria = new javax.swing.JPanel();
+        cboLuminaria = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -245,7 +392,7 @@ public void ConfigInicial(){
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(optOptimo)
                     .addComponent(optSinMantenimiento))
-                .addContainerGap(141, Short.MAX_VALUE))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -257,18 +404,42 @@ public void ConfigInicial(){
                 .addContainerGap(35, Short.MAX_VALUE))
         );
 
+        panelLuminaria.setBorder(javax.swing.BorderFactory.createTitledBorder("Tipo de luminaria"));
+
+        cboLuminaria.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Incandescente Tradicional", "Incandescente Halogena", "Fluorescente Compacta", "Tubos Fluorescentes", "Sodio", "Halogenuros Metalicos", "LED" }));
+
+        javax.swing.GroupLayout panelLuminariaLayout = new javax.swing.GroupLayout(panelLuminaria);
+        panelLuminaria.setLayout(panelLuminariaLayout);
+        panelLuminariaLayout.setHorizontalGroup(
+            panelLuminariaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelLuminariaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(cboLuminaria, javax.swing.GroupLayout.PREFERRED_SIZE, 183, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(58, Short.MAX_VALUE))
+        );
+        panelLuminariaLayout.setVerticalGroup(
+            panelLuminariaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelLuminariaLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(cboLuminaria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(50, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout panelSeleccionLayout = new javax.swing.GroupLayout(panelSeleccion);
         panelSeleccion.setLayout(panelSeleccionLayout);
         panelSeleccionLayout.setHorizontalGroup(
             panelSeleccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelSeleccionLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(panelSistemaIluminación, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(panelEnsuciamiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(panelSeleccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(panelLuminaria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(panelSeleccionLayout.createSequentialGroup()
+                        .addComponent(panelSistemaIluminación, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(panelEnsuciamiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(116, Short.MAX_VALUE))
         );
         panelSeleccionLayout.setVerticalGroup(
             panelSeleccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -278,7 +449,9 @@ public void ConfigInicial(){
                     .addComponent(panelSistemaIluminación, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(panelEnsuciamiento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(168, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(panelLuminaria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(27, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -359,7 +532,10 @@ public void ConfigInicial(){
             info=info+"d: "+d+"\n";
        }
        
-           
+           //Ejecuta el metodo de calculo del factor de mantenimiento
+            FactorDeMantenimiento();
+            info=info+"El factor de mantenimiento es: "+M+"\n";
+            
            JOptionPane.showMessageDialog(null,info);
        }
     }//GEN-LAST:event_btnCalcularActionPerformed
@@ -401,6 +577,7 @@ public void ConfigInicial(){
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCalcular;
+    private javax.swing.JComboBox<String> cboLuminaria;
     private javax.swing.ButtonGroup grupoEnsuciamiento;
     private javax.swing.ButtonGroup grupoMantenimiento;
     private javax.swing.ButtonGroup grupoSistIlum;
@@ -420,6 +597,7 @@ public void ConfigInicial(){
     private javax.swing.JRadioButton optSinMantenimiento;
     private javax.swing.JPanel panelEnsuciamiento;
     private javax.swing.JPanel panelIngresoDatos;
+    private javax.swing.JPanel panelLuminaria;
     private javax.swing.JPanel panelSeleccion;
     private javax.swing.JPanel panelSistemaIluminación;
     private javax.swing.JTextField txtAlturaTW;
