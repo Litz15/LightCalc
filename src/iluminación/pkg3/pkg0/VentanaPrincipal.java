@@ -21,6 +21,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     double k;               //Indice del local 
     double d;               //Distancia del plano de luminarias al techo
     double M;               //Factor de mantenimiento
+    int Emed;               //Iluminancia media [Lux]
+    int IRC;                //Índice de reproducción cromática
+    String Tcolor;          //Temperatura de color
+    String Espacio;         //Espacio Seleccionado
 
     /**
      * Creates new form VentanaPrincipal
@@ -39,7 +43,49 @@ public void ConfigInicial(){
         optOptimo.setSelected(true);
 
 }
-
+ public void Retilap(){
+ if (cboEspacios.getSelectedIndex()==0){ 
+     Emed=100;
+     IRC=40;
+     Tcolor="Tonos Cálidos <3000K";
+     Espacio="Áreas de circulación, corredores";
+    }else if(cboEspacios.getSelectedIndex()==1){
+     Emed=150;
+     IRC=40;
+     String Tcolor="Tonos Cálidos <3000K";
+     String Espacio="Escaleras";
+    }else if(cboEspacios.getSelectedIndex()==2){
+     Emed=150;
+     IRC=80;
+     String Tcolor="Tonos Cálidos <3000K";
+     String Espacio="Vestidores, baños, cuartos de servicio";
+    }else if(cboEspacios.getSelectedIndex()==3){
+     Emed=150;
+     IRC=40;
+     String Tcolor="Tonos Cálidos <3000K";
+     String Espacio="Almácenes, bodegas";
+    }else if(cboEspacios.getSelectedIndex()==4){
+     Emed=500;
+     IRC=80;
+     String Tcolor="Tonos neutros 3300K - 5000K";
+     String Espacio="Oficinas de tipo general, mecanografía y computación";
+    }else if(cboEspacios.getSelectedIndex()==5){
+     Emed=750;
+     IRC=80;
+     String Tcolor="Tonos neutros 3300K - 5000K";
+     String Espacio="Oficinas abiertas";
+    }else if(cboEspacios.getSelectedIndex()==6){
+     Emed=750;
+     IRC=90;
+     String Tcolor="Tonos fríos >5000K";
+     String Espacio="Oficinas de dibujo";
+    }else if(cboEspacios.getSelectedIndex()==7){
+     Emed=500;
+     IRC=80;
+     String Tcolor="Tonos neutros 3300K - 5000K";
+     String Espacio="Salas de conferencia";
+    }
+ }
  public void FactorDeMantenimiento(){
      if (cboLuminaria.getSelectedIndex()==0){
            if(optDebil.isSelected()){
@@ -221,7 +267,7 @@ public void ConfigInicial(){
         panelLuminaria = new javax.swing.JPanel();
         cboLuminaria = new javax.swing.JComboBox<>();
         jPanel2 = new javax.swing.JPanel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        cboEspacios = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -430,8 +476,8 @@ public void ConfigInicial(){
 
         jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Tipo de espacio"));
 
-        jComboBox1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Áreas de circulación, corredores", "Escaleras", "Vestidores, baños, cuartos de servicio", "Almácenes, bodegas", "Oficinas de tipo general, mecanografía y computación", "Oficinas abiertas", "Oficinas de dibujo", "Salas de conferencia" }));
+        cboEspacios.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        cboEspacios.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Áreas de circulación, corredores", "Escaleras", "Vestidores, baños, cuartos de servicio", "Almácenes, bodegas", "Oficinas de tipo general, mecanografía y computación", "Oficinas abiertas", "Oficinas de dibujo", "Salas de conferencia" }));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -439,14 +485,14 @@ public void ConfigInicial(){
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jComboBox1, 0, 0, Short.MAX_VALUE)
+                .addComponent(cboEspacios, 0, 0, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cboEspacios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -566,6 +612,13 @@ public void ConfigInicial(){
             FactorDeMantenimiento();
             info=info+"El factor de mantenimiento es: "+M+"\n";
             
+            //Selecciona los valores recomendados por retilap para espacio seleccionado
+            Retilap();
+            info=info+"El espacio seleccionado es: "+Espacio+"\n";
+            info=info+"La Iluminancia recomendada es: "+Emed+"\n";
+            info=info+"Se recomienda un IRC de "+IRC+"\n";
+            info=info+"Se recomienda una Temperatura de color con "+Tcolor+"\n";
+            
            JOptionPane.showMessageDialog(null,info);
        }
     }//GEN-LAST:event_btnCalcularActionPerformed
@@ -607,11 +660,11 @@ public void ConfigInicial(){
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCalcular;
+    private javax.swing.JComboBox<String> cboEspacios;
     private javax.swing.JComboBox<String> cboLuminaria;
     private javax.swing.ButtonGroup grupoEnsuciamiento;
     private javax.swing.ButtonGroup grupoMantenimiento;
     private javax.swing.ButtonGroup grupoSistIlum;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
