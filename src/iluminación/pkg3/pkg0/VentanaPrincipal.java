@@ -76,11 +76,25 @@ public void ConfigInicial(){
         optDebil.setSelected(true);
         optOptimo.setSelected(true);
         optPisoColor.setSelected(true);
+        optParedColor.setSelected(true);
+        optTechoColor.setSelected(true);
         
     //Llena el combo de piso
         cboReflecPiso.removeAllItems();
         for(int i=0;i<Color.length;i++){
             cboReflecPiso.addItem(Color[i]);
+    }
+   
+    //Llena el combo de pared
+        cboReflecPared.removeAllItems();
+        for(int i=0;i<Color.length;i++){
+            cboReflecPared.addItem(Color[i]);
+    }
+        
+    //Llena el combo de techo
+        cboReflecTecho.removeAllItems();
+        for(int i=0;i<Color.length;i++){
+            cboReflecTecho.addItem(Color[i]);
     }
         
         
@@ -342,7 +356,144 @@ public void ConfigInicial(){
            }
     }
  }
-
+ public void ReflecPared(){
+ if(optParedColor.isSelected()){
+     if (cboReflecPared.getSelectedIndex()==0){ 
+            ReflecPared=88;
+           }else if(cboReflecPared.getSelectedIndex()==1){
+            ReflecPared=76;
+           }else if(cboReflecPared.getSelectedIndex()==2){
+            ReflecPared=66;
+           }else if(cboReflecPared.getSelectedIndex()==3){
+            ReflecPared=80;
+           }else if(cboReflecPared.getSelectedIndex()==4){
+            ReflecPared=60;
+           }else if(cboReflecPared.getSelectedIndex()==5){
+            ReflecPared=69;
+           }else if(cboReflecPared.getSelectedIndex()==6){
+            ReflecPared=67;
+           }else if(cboReflecPared.getSelectedIndex()==7){
+            ReflecPared=25;
+           }else if(cboReflecPared.getSelectedIndex()==8){
+            ReflecPared=65;
+           }else if(cboReflecPared.getSelectedIndex()==9){
+            ReflecPared=50;
+           }else if(cboReflecPared.getSelectedIndex()==10){
+            ReflecPared=8;
+           }else if(cboReflecPared.getSelectedIndex()==11){
+            ReflecPared=10;
+           }else if(cboReflecPared.getSelectedIndex()==12){
+            ReflecPared=3;
+           }else if(cboReflecPared.getSelectedIndex()==13){
+            ReflecPared=7;
+           }
+    } else if(optParedSuperficie.isSelected()){
+        if (cboReflecPared.getSelectedIndex()==0){ 
+            ReflecPared=43;
+           }else if(cboReflecPared.getSelectedIndex()==1){
+            ReflecPared=16;
+           }else if(cboReflecPared.getSelectedIndex()==2){
+            ReflecPared=12;
+           }else if(cboReflecPared.getSelectedIndex()==3){
+            ReflecPared=48;
+           }else if(cboReflecPared.getSelectedIndex()==4){
+            ReflecPared=40;
+           }else if(cboReflecPared.getSelectedIndex()==5){
+            ReflecPared=18;
+           }
+    } else if(optParedAcabado.isSelected()){
+        if (cboReflecPared.getSelectedIndex()==0){ 
+            ReflecPared=78;
+           }else if(cboReflecPared.getSelectedIndex()==1){
+            ReflecPared=75;
+           }else if(cboReflecPared.getSelectedIndex()==2){
+            ReflecPared=18;
+           }else if(cboReflecPared.getSelectedIndex()==3){
+            ReflecPared=27;
+           }else if(cboReflecPared.getSelectedIndex()==4){
+            ReflecPared=45;
+           }else if(cboReflecPared.getSelectedIndex()==5){
+            ReflecPared=7;
+           }else if(cboReflecPared.getSelectedIndex()==6){
+            ReflecPared=17;
+           }else if(cboReflecPared.getSelectedIndex()==7){
+            ReflecPared=13;
+           }else if(cboReflecPared.getSelectedIndex()==8){
+            ReflecPared=40;
+           }else if(cboReflecPared.getSelectedIndex()==9){
+            ReflecPared=20;
+           }
+    }
+ }
+ public void ReflecTecho(){
+  if(optTechoColor.isSelected()){
+     if (cboReflecTecho.getSelectedIndex()==0){ 
+            ReflecTecho=88;
+           }else if(cboReflecTecho.getSelectedIndex()==1){
+            ReflecTecho=76;
+           }else if(cboReflecTecho.getSelectedIndex()==2){
+            ReflecTecho=66;
+           }else if(cboReflecTecho.getSelectedIndex()==3){
+            ReflecTecho=80;
+           }else if(cboReflecTecho.getSelectedIndex()==4){
+            ReflecTecho=60;
+           }else if(cboReflecTecho.getSelectedIndex()==5){
+            ReflecTecho=69;
+           }else if(cboReflecTecho.getSelectedIndex()==6){
+            ReflecTecho=67;
+           }else if(cboReflecTecho.getSelectedIndex()==7){
+            ReflecTecho=25;
+           }else if(cboReflecTecho.getSelectedIndex()==8){
+            ReflecTecho=65;
+           }else if(cboReflecTecho.getSelectedIndex()==9){
+            ReflecTecho=50;
+           }else if(cboReflecTecho.getSelectedIndex()==10){
+            ReflecTecho=8;
+           }else if(cboReflecTecho.getSelectedIndex()==11){
+            ReflecTecho=10;
+           }else if(cboReflecTecho.getSelectedIndex()==12){
+            ReflecTecho=3;
+           }else if(cboReflecTecho.getSelectedIndex()==13){
+            ReflecTecho=7;
+           }
+    } else if(optTechoSuperficie.isSelected()){
+        if (cboReflecTecho.getSelectedIndex()==0){ 
+            ReflecTecho=43;
+           }else if(cboReflecTecho.getSelectedIndex()==1){
+            ReflecTecho=16;
+           }else if(cboReflecTecho.getSelectedIndex()==2){
+            ReflecTecho=12;
+           }else if(cboReflecTecho.getSelectedIndex()==3){
+            ReflecTecho=48;
+           }else if(cboReflecTecho.getSelectedIndex()==4){
+            ReflecTecho=40;
+           }else if(cboReflecTecho.getSelectedIndex()==5){
+            ReflecTecho=18;
+           }
+    } else if(optTechoAcabado.isSelected()){
+        if (cboReflecTecho.getSelectedIndex()==0){ 
+            ReflecTecho=78;
+           }else if(cboReflecTecho.getSelectedIndex()==1){
+            ReflecTecho=75;
+           }else if(cboReflecTecho.getSelectedIndex()==2){
+            ReflecTecho=18;
+           }else if(cboReflecTecho.getSelectedIndex()==3){
+            ReflecTecho=27;
+           }else if(cboReflecTecho.getSelectedIndex()==4){
+            ReflecTecho=45;
+           }else if(cboReflecTecho.getSelectedIndex()==5){
+            ReflecTecho=7;
+           }else if(cboReflecTecho.getSelectedIndex()==6){
+            ReflecTecho=17;
+           }else if(cboReflecTecho.getSelectedIndex()==7){
+            ReflecTecho=13;
+           }else if(cboReflecTecho.getSelectedIndex()==8){
+            ReflecTecho=40;
+           }else if(cboReflecTecho.getSelectedIndex()==9){
+            ReflecTecho=20;
+           }
+    }
+ }
  /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -356,6 +507,8 @@ public void ConfigInicial(){
         grupoEnsuciamiento = new javax.swing.ButtonGroup();
         grupoMantenimiento = new javax.swing.ButtonGroup();
         grupoPiso = new javax.swing.ButtonGroup();
+        grupoPared = new javax.swing.ButtonGroup();
+        grupoTecho = new javax.swing.ButtonGroup();
         panelIngresoDatos = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -388,6 +541,16 @@ public void ConfigInicial(){
         optPisoSuperficie = new javax.swing.JRadioButton();
         optPisoAcabado = new javax.swing.JRadioButton();
         cboReflecPiso = new javax.swing.JComboBox<>();
+        panelPared = new javax.swing.JPanel();
+        optParedColor = new javax.swing.JRadioButton();
+        optParedSuperficie = new javax.swing.JRadioButton();
+        optParedAcabado = new javax.swing.JRadioButton();
+        cboReflecPared = new javax.swing.JComboBox<>();
+        panelTecho = new javax.swing.JPanel();
+        optTechoColor = new javax.swing.JRadioButton();
+        optTechoSuperficie = new javax.swing.JRadioButton();
+        optTechoAcabado = new javax.swing.JRadioButton();
+        cboReflecTecho = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -673,15 +836,130 @@ public void ConfigInicial(){
                 .addGap(0, 27, Short.MAX_VALUE))
         );
 
+        panelPared.setBorder(javax.swing.BorderFactory.createTitledBorder("Pared"));
+
+        grupoPared.add(optParedColor);
+        optParedColor.setText("Color");
+        optParedColor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                optParedColorActionPerformed(evt);
+            }
+        });
+
+        grupoPared.add(optParedSuperficie);
+        optParedSuperficie.setText("Superficie");
+        optParedSuperficie.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                optParedSuperficieActionPerformed(evt);
+            }
+        });
+
+        grupoPared.add(optParedAcabado);
+        optParedAcabado.setText("Acabado");
+        optParedAcabado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                optParedAcabadoActionPerformed(evt);
+            }
+        });
+
+        cboReflecPared.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        javax.swing.GroupLayout panelParedLayout = new javax.swing.GroupLayout(panelPared);
+        panelPared.setLayout(panelParedLayout);
+        panelParedLayout.setHorizontalGroup(
+            panelParedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelParedLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelParedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(panelParedLayout.createSequentialGroup()
+                        .addComponent(optParedColor)
+                        .addGap(45, 45, 45)
+                        .addComponent(optParedSuperficie)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(cboReflecPared, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(25, 25, 25)
+                .addComponent(optParedAcabado)
+                .addGap(40, 40, 40))
+        );
+        panelParedLayout.setVerticalGroup(
+            panelParedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelParedLayout.createSequentialGroup()
+                .addGroup(panelParedLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(optParedColor)
+                    .addComponent(optParedSuperficie)
+                    .addComponent(optParedAcabado))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(cboReflecPared, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 27, Short.MAX_VALUE))
+        );
+
+        panelTecho.setBorder(javax.swing.BorderFactory.createTitledBorder("Techo"));
+
+        grupoTecho.add(optTechoColor);
+        optTechoColor.setText("Color");
+        optTechoColor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                optTechoColorActionPerformed(evt);
+            }
+        });
+
+        grupoTecho.add(optTechoSuperficie);
+        optTechoSuperficie.setText("Superficie");
+        optTechoSuperficie.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                optTechoSuperficieActionPerformed(evt);
+            }
+        });
+
+        grupoTecho.add(optTechoAcabado);
+        optTechoAcabado.setText("Acabado");
+        optTechoAcabado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                optTechoAcabadoActionPerformed(evt);
+            }
+        });
+
+        cboReflecTecho.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        javax.swing.GroupLayout panelTechoLayout = new javax.swing.GroupLayout(panelTecho);
+        panelTecho.setLayout(panelTechoLayout);
+        panelTechoLayout.setHorizontalGroup(
+            panelTechoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelTechoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelTechoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(panelTechoLayout.createSequentialGroup()
+                        .addComponent(optTechoColor)
+                        .addGap(45, 45, 45)
+                        .addComponent(optTechoSuperficie)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(cboReflecTecho, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(25, 25, 25)
+                .addComponent(optTechoAcabado)
+                .addGap(40, 40, 40))
+        );
+        panelTechoLayout.setVerticalGroup(
+            panelTechoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelTechoLayout.createSequentialGroup()
+                .addGroup(panelTechoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(optTechoColor)
+                    .addComponent(optTechoSuperficie)
+                    .addComponent(optTechoAcabado))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(cboReflecTecho, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 27, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout panelSeleccionLayout = new javax.swing.GroupLayout(panelSeleccion);
         panelSeleccion.setLayout(panelSeleccionLayout);
         panelSeleccionLayout.setHorizontalGroup(
             panelSeleccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelSeleccionLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(panelSeleccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(panelPiso, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(panelSeleccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(panelTecho, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(panelSeleccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(panelPiso, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(panelSeleccionLayout.createSequentialGroup()
                             .addComponent(panelSistemaIluminación, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(18, 18, 18)
@@ -690,7 +968,8 @@ public void ConfigInicial(){
                 .addGap(18, 18, 18)
                 .addGroup(panelSeleccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(panelMantenimiento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(panelEspacio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(panelEspacio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(panelPared, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(54, Short.MAX_VALUE))
         );
         panelSeleccionLayout.setVerticalGroup(
@@ -707,8 +986,12 @@ public void ConfigInicial(){
                     .addComponent(panelLuminaria, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(panelEspacio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
-                .addComponent(panelPiso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(59, Short.MAX_VALUE))
+                .addGroup(panelSeleccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(panelPiso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(panelPared, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(panelTecho, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(91, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -732,12 +1015,12 @@ public void ConfigInicial(){
             .addGroup(layout.createSequentialGroup()
                 .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(panelSeleccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(panelIngresoDatos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(35, 35, 35)
-                        .addComponent(btnCalcular))
-                    .addComponent(panelSeleccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(242, Short.MAX_VALUE))
+                        .addComponent(btnCalcular)))
+                .addContainerGap(92, Short.MAX_VALUE))
         );
 
         pack();
@@ -802,7 +1085,18 @@ public void ConfigInicial(){
             
             //Asigna la reflectancia del piso
             ReflecPiso();
+            ReflecPiso=ReflecPiso/100;
             info= info+"La Reflectancia del piso es "+ReflecPiso+"\n";
+            
+            //Asigna la reflectancia de la pared
+            ReflecPared();
+            ReflecPared=ReflecPared/100;
+            info= info+"La Reflectancia de la pared es "+ReflecPared+"\n";
+            
+             //Asigna la reflectancia del techo
+            ReflecTecho();
+            ReflecTecho=ReflecTecho/100;
+            info= info+"La Reflectancia del techo es "+ReflecTecho+"\n";
             
            JOptionPane.showMessageDialog(null,info);
        }
@@ -829,6 +1123,48 @@ public void ConfigInicial(){
             cboReflecPiso.addItem(Acabado[i]);
         }
     }//GEN-LAST:event_optPisoAcabadoActionPerformed
+
+    private void optParedColorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optParedColorActionPerformed
+        cboReflecPared.removeAllItems();
+        for(int i=0;i<Color.length;i++){
+            cboReflecPared.addItem(Color[i]);
+        }
+    }//GEN-LAST:event_optParedColorActionPerformed
+
+    private void optParedSuperficieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optParedSuperficieActionPerformed
+        cboReflecPared.removeAllItems();
+        for(int i=0;i<Superficie.length;i++){
+            cboReflecPared.addItem(Superficie[i]);
+        }
+    }//GEN-LAST:event_optParedSuperficieActionPerformed
+
+    private void optParedAcabadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optParedAcabadoActionPerformed
+        cboReflecPared.removeAllItems();
+        for(int i=0;i<Acabado.length;i++){
+            cboReflecPared.addItem(Acabado[i]);
+        }
+    }//GEN-LAST:event_optParedAcabadoActionPerformed
+
+    private void optTechoColorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optTechoColorActionPerformed
+        cboReflecTecho.removeAllItems();
+        for(int i=0;i<Color.length;i++){
+            cboReflecTecho.addItem(Color[i]);
+        }
+    }//GEN-LAST:event_optTechoColorActionPerformed
+
+    private void optTechoSuperficieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optTechoSuperficieActionPerformed
+        cboReflecTecho.removeAllItems();
+        for(int i=0;i<Superficie.length;i++){
+            cboReflecTecho.addItem(Superficie[i]);
+        }
+    }//GEN-LAST:event_optTechoSuperficieActionPerformed
+
+    private void optTechoAcabadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optTechoAcabadoActionPerformed
+        cboReflecTecho.removeAllItems();
+        for(int i=0;i<Acabado.length;i++){
+            cboReflecTecho.addItem(Acabado[i]);
+        }
+    }//GEN-LAST:event_optTechoAcabadoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -869,11 +1205,15 @@ public void ConfigInicial(){
     private javax.swing.JButton btnCalcular;
     private javax.swing.JComboBox<String> cboEspacios;
     private javax.swing.JComboBox<String> cboLuminaria;
+    private javax.swing.JComboBox<String> cboReflecPared;
     private javax.swing.JComboBox<String> cboReflecPiso;
+    private javax.swing.JComboBox<String> cboReflecTecho;
     private javax.swing.ButtonGroup grupoEnsuciamiento;
     private javax.swing.ButtonGroup grupoMantenimiento;
+    private javax.swing.ButtonGroup grupoPared;
     private javax.swing.ButtonGroup grupoPiso;
     private javax.swing.ButtonGroup grupoSistIlum;
+    private javax.swing.ButtonGroup grupoTecho;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -885,19 +1225,27 @@ public void ConfigInicial(){
     private javax.swing.JRadioButton optIndirecta;
     private javax.swing.JRadioButton optMediano;
     private javax.swing.JRadioButton optOptimo;
+    private javax.swing.JRadioButton optParedAcabado;
+    private javax.swing.JRadioButton optParedColor;
+    private javax.swing.JRadioButton optParedSuperficie;
     private javax.swing.JRadioButton optPisoAcabado;
     private javax.swing.JRadioButton optPisoColor;
     private javax.swing.JRadioButton optPisoSuperficie;
     private javax.swing.JRadioButton optSemidirecta;
     private javax.swing.JRadioButton optSinMantenimiento;
+    private javax.swing.JRadioButton optTechoAcabado;
+    private javax.swing.JRadioButton optTechoColor;
+    private javax.swing.JRadioButton optTechoSuperficie;
     private javax.swing.JPanel panelEnsuciamiento;
     private javax.swing.JPanel panelEspacio;
     private javax.swing.JPanel panelIngresoDatos;
     private javax.swing.JPanel panelLuminaria;
     private javax.swing.JPanel panelMantenimiento;
+    private javax.swing.JPanel panelPared;
     private javax.swing.JPanel panelPiso;
     private javax.swing.JPanel panelSeleccion;
     private javax.swing.JPanel panelSistemaIluminación;
+    private javax.swing.JPanel panelTecho;
     private javax.swing.JTextField txtAlturaTW;
     private javax.swing.JTextField txtAlturaTot;
     private javax.swing.JTextField txtAncho;
