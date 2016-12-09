@@ -59,6 +59,10 @@ public class VentanaPrincipal extends javax.swing.JFrame {
                     "Madera clara",
                     "Madera oscura"};
     String triada[]={"A","A","A"};
+    double nwp;             //Factor de utilización del plano de trabajo
+    double FLtot;           //Flujo luminoso total requerido
+    double FLLamp;          //Flujo luminoso de la lámpara a utilizar
+    int NumLum;             //Número de luminarias requeridas
 
     /**
      * Creates new form VentanaPrincipal
@@ -109,38 +113,38 @@ public void ConfigInicial(){
     }else if(cboEspacios.getSelectedIndex()==1){
      Emed=150;
      IRC=40;
-     String Tcolor="Tonos Cálidos <3000K";
+     Tcolor="Tonos Cálidos <3000K";
      String Espacio="Escaleras";
     }else if(cboEspacios.getSelectedIndex()==2){
      Emed=150;
      IRC=80;
-     String Tcolor="Tonos Cálidos <3000K";
-     String Espacio="Vestidores, baños, cuartos de servicio";
+     Tcolor="Tonos Cálidos <3000K";
+     Espacio="Vestidores, baños, cuartos de servicio";
     }else if(cboEspacios.getSelectedIndex()==3){
      Emed=150;
      IRC=40;
-     String Tcolor="Tonos Cálidos <3000K";
-     String Espacio="Almácenes, bodegas";
+     Tcolor="Tonos Cálidos <3000K";
+     Espacio="Almácenes, bodegas";
     }else if(cboEspacios.getSelectedIndex()==4){
      Emed=500;
      IRC=80;
-     String Tcolor="Tonos neutros 3300K - 5000K";
-     String Espacio="Oficinas de tipo general, mecanografía y computación";
+     Tcolor="Tonos neutros 3300K - 5000K";
+     Espacio="Oficinas de tipo general, mecanografía y computación";
     }else if(cboEspacios.getSelectedIndex()==5){
      Emed=750;
      IRC=80;
-     String Tcolor="Tonos neutros 3300K - 5000K";
-     String Espacio="Oficinas abiertas";
+     Tcolor="Tonos neutros 3300K - 5000K";
+     Espacio="Oficinas abiertas";
     }else if(cboEspacios.getSelectedIndex()==6){
      Emed=750;
      IRC=90;
-     String Tcolor="Tonos fríos >5000K";
-     String Espacio="Oficinas de dibujo";
+     Tcolor="Tonos fríos >5000K";
+     Espacio="Oficinas de dibujo";
     }else if(cboEspacios.getSelectedIndex()==7){
      Emed=500;
      IRC=80;
-     String Tcolor="Tonos neutros 3300K - 5000K";
-     String Espacio="Salas de conferencia";
+     Tcolor="Tonos neutros 3300K - 5000K";
+     Espacio="Salas de conferencia";
     }
  }
  public void FactorDeMantenimiento(){
@@ -494,6 +498,692 @@ public void ConfigInicial(){
            }
     }
  }
+ public void FactorDeUtilizacion(){
+     
+        String p1[]={"A","B","D"};
+        String p2[]={"A","C","D"};
+        String p3[]={"B","B","D"};
+        String p4[]={"B","C","D"};
+        String p5[]={"C","C","D"};
+        String p6[]={"A","B","C"};
+        String p7[]={"A","C","C"};
+        String p8[]={"A","D","C"};
+        String p9[]={"B","B","C"};
+        String p10[]={"B","C","C"};
+        String p11[]={"B","D","C"};
+        String p12[]={"C","C","C"};
+        String p13[]={"C","D","C"};
+        int columna=0;
+        //Techo
+        if(ReflecTecho>0.59){
+        triada[0]="A";
+        }else {
+            if (ReflecTecho>0.39){
+              triada[0]="B";
+            } else  {
+                triada[0]="C";
+                }
+        }
+
+      //Pared
+        if(ReflecPared>0.39){
+        triada[1]="B";
+        }else {
+            if (ReflecPared>0.19){
+              triada[1]="C";
+            } else  {
+                triada[1]="D";
+                }
+        }
+
+      //Piso
+         if(ReflecPiso>0.19){
+        triada[2]="C";
+        }else {
+         triada[2]="D";
+        }
+      //busqueda de columna
+         if (triada[0].equals(p1[0])){
+                 if(triada[1].equals(p1[1])){
+                        if(triada[2].equals(p1[2])){
+                        columna=1;
+                        }
+             }
+        }
+         if (triada[0].equals(p2[0])){
+                 if(triada[1].equals(p2[1])){
+                        if(triada[2].equals(p2[2])){
+                        columna=2;
+                        }
+             }
+        }
+         if (triada[0].equals(p3[0])){
+                 if(triada[1].equals(p3[1])){
+                        if(triada[2].equals(p3[2])){
+                        columna=3;
+                        }
+             }
+        }
+         if (triada[0].equals(p4[0])){
+                 if(triada[1].equals(p4[1])){
+                        if(triada[2].equals(p4[2])){
+                        columna=4;
+                        }
+             }
+        }
+         if (triada[0].equals(p5[0])){
+                 if(triada[1].equals(p5[1])){
+                        if(triada[2].equals(p5[2])){
+                        columna=5;
+                        }
+             }
+        }
+         if (triada[0].equals(p6[0])){
+                 if(triada[1].equals(p6[1])){
+                        if(triada[2].equals(p6[2])){
+                        columna=6;
+                        }
+             }
+        }
+         if (triada[0].equals(p7[0])){
+                 if(triada[1].equals(p7[1])){
+                        if(triada[2].equals(p7[2])){
+                        columna=7;
+                        }
+             }
+        }
+         if (triada[0].equals(p8[0])){
+                 if(triada[1].equals(p8[1])){
+                        if(triada[2].equals(p8[2])){
+                        columna=8;
+                        }
+             }
+        }
+         if (triada[0].equals(p9[0])){
+                 if(triada[1].equals(p9[1])){
+                        if(triada[2].equals(p9[2])){
+                        columna=9;
+                        }
+             }
+        }
+         if (triada[0].equals(p10[0])){
+                 if(triada[1].equals(p10[1])){
+                        if(triada[2].equals(p10[2])){
+                        columna=10;
+                        }
+             }
+        }
+         if (triada[0].equals(p11[0])){
+                 if(triada[1].equals(p11[1])){
+                        if(triada[2].equals(p11[2])){
+                        columna=11;
+                        }
+             }
+        }
+         if (triada[0].equals(p12[0])){
+                 if(triada[1].equals(p12[1])){
+                        if(triada[2].equals(p12[2])){
+                        columna=12;
+                        }
+             }
+        }
+         if (triada[0].equals(p13[0])){
+                 if(triada[1].equals(p13[1])){
+                        if(triada[2].equals(p13[2])){
+                        columna=13;
+                        }
+             }
+        }
+
+      //buscar fila
+        if(columna==1){
+            if(k>5){
+            nwp=0.69;
+            } else{
+                if(k>4){
+                nwp=0.685;
+                }else{
+                    if(k>3){
+                    nwp=0.67;
+                    } else{
+                        if(k>2.5){
+                        nwp=0.65;
+                        }else{
+                            if(k>2){
+                            nwp=0.63;
+                            }else {
+                                if(k>1.5){
+                                nwp=0.595;
+                                } else{
+                                    if(k>1.25){
+                                    nwp=0.555;
+                                    } else{
+                                        if(k>1){
+                                        nwp=0.515;
+                                        }else{
+                                            if(k>0.8){
+                                            nwp=0.465;
+                                            }else{
+                                                if(k>0.6){
+                                                nwp=0.405;
+                                                } else{
+                                                  nwp=0.37;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        } else if(columna==2){
+            if(k>5){
+            nwp=0.67;
+            } else{
+                if(k>4){
+                nwp=0.665;
+                }else{
+                    if(k>3){
+                    nwp=0.65;
+                    } else{
+                        if(k>2.5){
+                        nwp=0.63;
+                        }else{
+                            if(k>2){
+                            nwp=0.605;
+                            }else {
+                                if(k>1.5){
+                                nwp=0.565;
+                                } else{
+                                    if(k>1.25){
+                                    nwp=0.52;
+                                    } else{
+                                        if(k>1){
+                                        nwp=0.475;
+                                        }else{
+                                            if(k>0.8){
+                                            nwp=0.425;
+                                            }else{
+                                                if(k>0.6){
+                                                nwp=0.365;
+                                                } else{
+                                                  nwp=0.33;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        } else if(columna==3){
+            if(k>5){
+            nwp=0.67;
+            } else{
+                if(k>4){
+                nwp=0.665;
+                }else{
+                    if(k>3){
+                    nwp=0.655;
+                    } else{
+                        if(k>2.5){
+                        nwp=0.64;
+                        }else{
+                            if(k>2){
+                            nwp=0.615;
+                            }else {
+                                if(k>1.5){
+                                nwp=0.58;
+                                } else{
+                                    if(k>1.25){
+                                    nwp=0.545;
+                                    } else{
+                                        if(k>1){
+                                        nwp=0.505;
+                                        }else{
+                                            if(k>0.8){
+                                            nwp=0.455;
+                                            }else{
+                                                if(k>0.6){
+                                                nwp=0.395;
+                                                } else{
+                                                  nwp=0.36;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        } else if(columna==4){
+            if(k>5){
+            nwp=0.66;
+            } else{
+                if(k>4){
+                nwp=0.655;
+                }else{
+                    if(k>3){
+                    nwp=0.63;
+                    } else{
+                        if(k>2.5){
+                        nwp=0.62;
+                        }else{
+                            if(k>2){
+                            nwp=0.595;
+                            }else {
+                                if(k>1.5){
+                                nwp=0.555;
+                                } else{
+                                    if(k>1.25){
+                                    nwp=0.515;
+                                    } else{
+                                        if(k>1){
+                                        nwp=0.475;
+                                        }else{
+                                            if(k>0.8){
+                                            nwp=0.42;
+                                            }else{
+                                                if(k>0.6){
+                                                nwp=0.355;
+                                                } else{
+                                                  nwp=0.32;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        } if(columna==5){
+            if(k>5){
+            nwp=0.65;
+            } else{
+                if(k>4){
+                nwp=0.645;
+                }else{
+                    if(k>3){
+                    nwp=0.63;
+                    } else{
+                        if(k>2.5){
+                        nwp=0.61;
+                        }else{
+                            if(k>2){
+                            nwp=0.585;
+                            }else {
+                                if(k>1.5){
+                                nwp=0.545;
+                                } else{
+                                    if(k>1.25){
+                                    nwp=0.505;
+                                    } else{
+                                        if(k>1){
+                                        nwp=0.465;
+                                        }else{
+                                            if(k>0.8){
+                                            nwp=0.415;
+                                            }else{
+                                                if(k>0.6){
+                                                nwp=0.355;
+                                                } else{
+                                                  nwp=0.32;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        } if(columna==6){
+            if(k>5){
+            nwp=0.78;
+            } else{
+                if(k>4){
+                nwp=0.775;
+                }else{
+                    if(k>3){
+                    nwp=0.755;
+                    } else{
+                        if(k>2.5){
+                        nwp=0.725;
+                        }else{
+                            if(k>2){
+                            nwp=0.695;
+                            }else {
+                                if(k>1.5){
+                                nwp=0.65;
+                                } else{
+                                    if(k>1.25){
+                                    nwp=0.6;
+                                    } else{
+                                        if(k>1){
+                                        nwp=0.555;
+                                        }else{
+                                            if(k>0.8){
+                                            nwp=0.495;
+                                            }else{
+                                                if(k>0.6){
+                                                nwp=0.425;
+                                                } else{
+                                                  nwp=0.39;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        } else if(columna==7){
+            if(k>5){
+            nwp=0.76;
+            } else{
+                if(k>4){
+                nwp=0.75;
+                }else{
+                    if(k>3){
+                    nwp=0.725;
+                    } else{
+                        if(k>2.5){
+                        nwp=0.695;
+                        }else{
+                            if(k>2){
+                            nwp=0.66;
+                            }else {
+                                if(k>1.5){
+                                nwp=0.605;
+                                } else{
+                                    if(k>1.25){
+                                    nwp=0.55;
+                                    } else{
+                                        if(k>1){
+                                        nwp=0.50;
+                                        }else{
+                                            if(k>0.8){
+                                            nwp=0.435;
+                                            }else{
+                                                if(k>0.6){
+                                                nwp=0.375;
+                                                } else{
+                                                  nwp=0.34;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }  else if(columna==8){
+            if(k>5){
+            nwp=0.74;
+            } else{
+                if(k>4){
+                nwp=0.73;
+                }else{
+                    if(k>3){
+                    nwp=0.70;
+                    } else{
+                        if(k>2.5){
+                        nwp=0.665;
+                        }else{
+                            if(k>2){
+                            nwp=0.625;
+                            }else {
+                                if(k>1.5){
+                                nwp=0.57;
+                                } else{
+                                    if(k>1.25){
+                                    nwp=0.515;
+                                    } else{
+                                        if(k>1){
+                                        nwp=0.46;
+                                        }else{
+                                            if(k>0.8){
+                                            nwp=0.40;
+                                            }else{
+                                                if(k>0.6){
+                                                nwp=0.335;
+                                                } else{
+                                                  nwp=0.3;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        } else if(columna==9){
+            if(k>5){
+            nwp=0.74;
+            } else{
+                if(k>4){
+                nwp=0.735;
+                }else{
+                    if(k>3){
+                    nwp=0.715;
+                    } else{
+                        if(k>2.5){
+                        nwp=0.69;
+                        }else{
+                            if(k>2){
+                            nwp=0.665;
+                            }else {
+                                if(k>1.5){
+                                nwp=0.625;
+                                } else{
+                                    if(k>1.25){
+                                    nwp=0.58;
+                                    } else{
+                                        if(k>1){
+                                        nwp=0.535;
+                                        }else{
+                                            if(k>0.8){
+                                            nwp=0.48;
+                                            }else{
+                                                if(k>0.6){
+                                                nwp=0.415;
+                                                } else{
+                                                  nwp=0.38;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        } else if(columna==10){
+            if(k>5){
+            nwp=0.72;
+            } else{
+                if(k>4){
+                nwp=0.71;
+                }else{
+                    if(k>3){
+                    nwp=0.69;
+                    } else{
+                        if(k>2.5){
+                        nwp=0.665;
+                        }else{
+                            if(k>2){
+                            nwp=0.635;
+                            }else {
+                                if(k>1.5){
+                                nwp=0.59;
+                                } else{
+                                    if(k>1.25){
+                                    nwp=0.54;
+                                    } else{
+                                        if(k>1){
+                                        nwp=0.49;
+                                        }else{
+                                            if(k>0.8){
+                                            nwp=0.43;
+                                            }else{
+                                                if(k>0.6){
+                                                nwp=0.365;
+                                                } else{
+                                                  nwp=0.33;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        } else if(columna==11){
+            if(k>5){
+            nwp=0.70;
+            } else{
+                if(k>4){
+                nwp=0.695;
+                }else{
+                    if(k>3){
+                    nwp=0.67;
+                    } else{
+                        if(k>2.5){
+                        nwp=0.64;
+                        }else{
+                            if(k>2){
+                            nwp=0.61;
+                            }else {
+                                if(k>1.5){
+                                nwp=0.555;
+                                } else{
+                                    if(k>1.25){
+                                    nwp=0.50;
+                                    } else{
+                                        if(k>1){
+                                        nwp=0.455;
+                                        }else{
+                                            if(k>0.8){
+                                            nwp=0.40;
+                                            }else{
+                                                if(k>0.6){
+                                                nwp=0.335;
+                                                } else{
+                                                  nwp=0.3;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        } if(columna==12){
+            if(k>5){
+            nwp=0.69;
+            } else{
+                if(k>4){
+                nwp=0.68;
+                }else{
+                    if(k>3){
+                    nwp=0.66;
+                    } else{
+                        if(k>2.5){
+                        nwp=0.64;
+                        }else{
+                            if(k>2){
+                            nwp=0.61;
+                            }else {
+                                if(k>1.5){
+                                nwp=0.565;
+                                } else{
+                                    if(k>1.25){
+                                    nwp=0.52;
+                                    } else{
+                                        if(k>1){
+                                        nwp=0.475;
+                                        }else{
+                                            if(k>0.8){
+                                            nwp=0.425;
+                                            }else{
+                                                if(k>0.6){
+                                                nwp=0.365;
+                                                } else{
+                                                  nwp=0.33;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        } else if(columna==13){
+            if(k>5){
+            nwp=0.67;
+            } else{
+                if(k>4){
+                nwp=0.665;
+                }else{
+                    if(k>3){
+                    nwp=0.645;
+                    } else{
+                        if(k>2.5){
+                        nwp=0.62;
+                        }else{
+                            if(k>2){
+                            nwp=0.59;
+                            }else {
+                                if(k>1.5){
+                                nwp=0.54;
+                                } else{
+                                    if(k>1.25){
+                                    nwp=0.495;
+                                    } else{
+                                        if(k>1){
+                                        nwp=0.45;
+                                        }else{
+                                            if(k>0.8){
+                                            nwp=0.395;
+                                            }else{
+                                                if(k>0.6){
+                                                nwp=0.335;
+                                                } else{
+                                                  nwp=0.30;
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+ }
  /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -551,6 +1241,9 @@ public void ConfigInicial(){
         optTechoSuperficie = new javax.swing.JRadioButton();
         optTechoAcabado = new javax.swing.JRadioButton();
         cboReflecTecho = new javax.swing.JComboBox<>();
+        panelFlujo = new javax.swing.JPanel();
+        jLabel5 = new javax.swing.JLabel();
+        txtFlujo = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -950,6 +1643,34 @@ public void ConfigInicial(){
                 .addGap(0, 27, Short.MAX_VALUE))
         );
 
+        panelFlujo.setBorder(javax.swing.BorderFactory.createTitledBorder("Flujo Luminoso"));
+
+        jLabel5.setText("Digite el flujo luminoso de la luminaria a utilizar");
+
+        javax.swing.GroupLayout panelFlujoLayout = new javax.swing.GroupLayout(panelFlujo);
+        panelFlujo.setLayout(panelFlujoLayout);
+        panelFlujoLayout.setHorizontalGroup(
+            panelFlujoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelFlujoLayout.createSequentialGroup()
+                .addGroup(panelFlujoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelFlujoLayout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelFlujoLayout.createSequentialGroup()
+                        .addGap(72, 72, 72)
+                        .addComponent(txtFlujo, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        panelFlujoLayout.setVerticalGroup(
+            panelFlujoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelFlujoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtFlujo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout panelSeleccionLayout = new javax.swing.GroupLayout(panelSeleccion);
         panelSeleccion.setLayout(panelSeleccionLayout);
         panelSeleccionLayout.setHorizontalGroup(
@@ -958,18 +1679,18 @@ public void ConfigInicial(){
                 .addContainerGap()
                 .addGroup(panelSeleccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(panelTecho, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(panelSeleccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(panelPiso, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(panelSeleccionLayout.createSequentialGroup()
-                            .addComponent(panelSistemaIluminación, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(18, 18, 18)
-                            .addComponent(panelEnsuciamiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(panelLuminaria, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(panelPiso, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelSeleccionLayout.createSequentialGroup()
+                        .addComponent(panelSistemaIluminación, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(panelEnsuciamiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(panelLuminaria, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(panelSeleccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(panelMantenimiento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(panelEspacio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(panelPared, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(panelPared, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(panelFlujo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(54, Short.MAX_VALUE))
         );
         panelSeleccionLayout.setVerticalGroup(
@@ -990,7 +1711,9 @@ public void ConfigInicial(){
                     .addComponent(panelPiso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(panelPared, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(panelTecho, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(panelSeleccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(panelTecho, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(panelFlujo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(91, Short.MAX_VALUE))
         );
 
@@ -1098,8 +1821,29 @@ public void ConfigInicial(){
             ReflecTecho=ReflecTecho/100;
             info= info+"La Reflectancia del techo es "+ReflecTecho+"\n";
             
-           JOptionPane.showMessageDialog(null,info);
-       }
+            //Asigna el factor de utilizacion del plano de trabajo
+            FactorDeUtilizacion();
+
+            //Imprime en Pantalla el factor de utilizacion del plano de trabajo
+            info=info+"El factor de utilizacion del plano de trabajo es "+nwp+"\n";
+
+             FLtot=(Emed*Ancho*Largo)/(nwp*M);
+             info=info+"El flujo necesario es: "+FLtot+" lumenes"+"\n";
+             
+             //Verifica que se haya digitado el flujo luminoso
+            if(txtFlujo.getText().equals("")){
+            JOptionPane.showMessageDialog(null,"Digite el flujo luminoso de su luminaria");
+            } else{
+
+             FLLamp=Double.parseDouble(txtFlujo.getText());
+
+              NumLum=(int)(FLtot/FLLamp);
+
+            info=info+"EL numero de luminarias necesarias es: "+NumLum+"\n";
+            }
+
+                JOptionPane.showMessageDialog(null,info);
+            }
     }//GEN-LAST:event_btnCalcularActionPerformed
 
     private void optPisoColorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optPisoColorActionPerformed
@@ -1218,6 +1962,7 @@ public void ConfigInicial(){
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JRadioButton optDebil;
     private javax.swing.JRadioButton optDifusa;
     private javax.swing.JRadioButton optDirecta;
@@ -1238,6 +1983,7 @@ public void ConfigInicial(){
     private javax.swing.JRadioButton optTechoSuperficie;
     private javax.swing.JPanel panelEnsuciamiento;
     private javax.swing.JPanel panelEspacio;
+    private javax.swing.JPanel panelFlujo;
     private javax.swing.JPanel panelIngresoDatos;
     private javax.swing.JPanel panelLuminaria;
     private javax.swing.JPanel panelMantenimiento;
@@ -1249,6 +1995,7 @@ public void ConfigInicial(){
     private javax.swing.JTextField txtAlturaTW;
     private javax.swing.JTextField txtAlturaTot;
     private javax.swing.JTextField txtAncho;
+    private javax.swing.JTextField txtFlujo;
     private javax.swing.JTextField txtLargo;
     // End of variables declaration//GEN-END:variables
 }
