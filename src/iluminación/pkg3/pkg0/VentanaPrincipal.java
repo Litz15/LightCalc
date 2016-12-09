@@ -25,6 +25,40 @@ public class VentanaPrincipal extends javax.swing.JFrame {
     int IRC;                //Índice de reproducción cromática
     String Tcolor;          //Temperatura de color
     String Espacio;         //Espacio Seleccionado
+    double ReflecPiso;      //Reflectancia del piso
+    double ReflecPared;     //Reflectancia de la pared
+    double ReflecTecho;     //Reflectancia del techo
+    String Color[]={"Blanco nuevo",
+                    "Blanco viejo",
+                    "Azul verde",
+                    "Crema",
+                    "Azul claro",
+                    "Miel",
+                    "Gris Claro",
+                    "Gris Oscuro",
+                    "Amarillo",
+                    "Amarillo oscuro",
+                    "Azul Oscuro",
+                    "Cafe",
+                    "Negro",
+                    "Verde Oscuro"};
+    String Acabado[]={"Blanco polarizado",
+                    "Aluminio",
+                    "Cantera clara",
+                    "Cemento",
+                    "Mármol blanco",
+                    "Asfalto limpio",
+                    "Adoquín de roca",
+                    "Grava",
+                    "Ladrillo claro",
+                    "Ladrillo oscuro",};
+    String Superficie[]={"Maple",
+                    "Nogal",
+                    "Caoba",
+                    "Pino",
+                    "Madera clara",
+                    "Madera oscura"};
+    String triada[]={"A","A","A"};
 
     /**
      * Creates new form VentanaPrincipal
@@ -41,6 +75,15 @@ public void ConfigInicial(){
         optDirecta.setSelected(true);
         optDebil.setSelected(true);
         optOptimo.setSelected(true);
+        optPisoColor.setSelected(true);
+        
+    //Llena el combo de piso
+        cboReflecPiso.removeAllItems();
+        for(int i=0;i<Color.length;i++){
+            cboReflecPiso.addItem(Color[i]);
+    }
+        
+        
 
 }
  public void Retilap(){
@@ -229,7 +272,78 @@ public void ConfigInicial(){
            }
         }
     }
-    /**
+ public void ReflecPiso(){
+        
+    if(optPisoColor.isSelected()){
+     if (cboReflecPiso.getSelectedIndex()==0){ 
+            ReflecPiso=88;
+           }else if(cboReflecPiso.getSelectedIndex()==1){
+            ReflecPiso=76;
+           }else if(cboReflecPiso.getSelectedIndex()==2){
+            ReflecPiso=66;
+           }else if(cboReflecPiso.getSelectedIndex()==3){
+            ReflecPiso=80;
+           }else if(cboReflecPiso.getSelectedIndex()==4){
+            ReflecPiso=60;
+           }else if(cboReflecPiso.getSelectedIndex()==5){
+            ReflecPiso=69;
+           }else if(cboReflecPiso.getSelectedIndex()==6){
+            ReflecPiso=67;
+           }else if(cboReflecPiso.getSelectedIndex()==7){
+            ReflecPiso=25;
+           }else if(cboReflecPiso.getSelectedIndex()==8){
+            ReflecPiso=65;
+           }else if(cboReflecPiso.getSelectedIndex()==9){
+            ReflecPiso=50;
+           }else if(cboReflecPiso.getSelectedIndex()==10){
+            ReflecPiso=8;
+           }else if(cboReflecPiso.getSelectedIndex()==11){
+            ReflecPiso=10;
+           }else if(cboReflecPiso.getSelectedIndex()==12){
+            ReflecPiso=3;
+           }else if(cboReflecPiso.getSelectedIndex()==13){
+            ReflecPiso=7;
+           }
+    } else if(optPisoSuperficie.isSelected()){
+        if (cboReflecPiso.getSelectedIndex()==0){ 
+            ReflecPiso=43;
+           }else if(cboReflecPiso.getSelectedIndex()==1){
+            ReflecPiso=16;
+           }else if(cboReflecPiso.getSelectedIndex()==2){
+            ReflecPiso=12;
+           }else if(cboReflecPiso.getSelectedIndex()==3){
+            ReflecPiso=48;
+           }else if(cboReflecPiso.getSelectedIndex()==4){
+            ReflecPiso=40;
+           }else if(cboReflecPiso.getSelectedIndex()==5){
+            ReflecPiso=18;
+           }
+    } else if(optPisoAcabado.isSelected()){
+        if (cboReflecPiso.getSelectedIndex()==0){ 
+            ReflecPiso=78;
+           }else if(cboReflecPiso.getSelectedIndex()==1){
+            ReflecPiso=75;
+           }else if(cboReflecPiso.getSelectedIndex()==2){
+            ReflecPiso=18;
+           }else if(cboReflecPiso.getSelectedIndex()==3){
+            ReflecPiso=27;
+           }else if(cboReflecPiso.getSelectedIndex()==4){
+            ReflecPiso=45;
+           }else if(cboReflecPiso.getSelectedIndex()==5){
+            ReflecPiso=7;
+           }else if(cboReflecPiso.getSelectedIndex()==6){
+            ReflecPiso=17;
+           }else if(cboReflecPiso.getSelectedIndex()==7){
+            ReflecPiso=13;
+           }else if(cboReflecPiso.getSelectedIndex()==8){
+            ReflecPiso=40;
+           }else if(cboReflecPiso.getSelectedIndex()==9){
+            ReflecPiso=20;
+           }
+    }
+ }
+
+ /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
      * regenerated by the Form Editor.
@@ -241,6 +355,7 @@ public void ConfigInicial(){
         grupoSistIlum = new javax.swing.ButtonGroup();
         grupoEnsuciamiento = new javax.swing.ButtonGroup();
         grupoMantenimiento = new javax.swing.ButtonGroup();
+        grupoPiso = new javax.swing.ButtonGroup();
         panelIngresoDatos = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -261,13 +376,18 @@ public void ConfigInicial(){
         optDebil = new javax.swing.JRadioButton();
         optMediano = new javax.swing.JRadioButton();
         optFuerte = new javax.swing.JRadioButton();
-        jPanel1 = new javax.swing.JPanel();
+        panelMantenimiento = new javax.swing.JPanel();
         optOptimo = new javax.swing.JRadioButton();
         optSinMantenimiento = new javax.swing.JRadioButton();
         panelLuminaria = new javax.swing.JPanel();
         cboLuminaria = new javax.swing.JComboBox<>();
-        jPanel2 = new javax.swing.JPanel();
+        panelEspacio = new javax.swing.JPanel();
         cboEspacios = new javax.swing.JComboBox<>();
+        panelPiso = new javax.swing.JPanel();
+        optPisoColor = new javax.swing.JRadioButton();
+        optPisoSuperficie = new javax.swing.JRadioButton();
+        optPisoAcabado = new javax.swing.JRadioButton();
+        cboReflecPiso = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -421,7 +541,7 @@ public void ConfigInicial(){
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Mantenimiento"));
+        panelMantenimiento.setBorder(javax.swing.BorderFactory.createTitledBorder("Mantenimiento"));
 
         grupoMantenimiento.add(optOptimo);
         optOptimo.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -431,20 +551,20 @@ public void ConfigInicial(){
         optSinMantenimiento.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         optSinMantenimiento.setText("Sin Mantenimiento programado");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout panelMantenimientoLayout = new javax.swing.GroupLayout(panelMantenimiento);
+        panelMantenimiento.setLayout(panelMantenimientoLayout);
+        panelMantenimientoLayout.setHorizontalGroup(
+            panelMantenimientoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelMantenimientoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panelMantenimientoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(optOptimo)
                     .addComponent(optSinMantenimiento))
                 .addContainerGap(97, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        panelMantenimientoLayout.setVerticalGroup(
+            panelMantenimientoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelMantenimientoLayout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addComponent(optOptimo)
                 .addGap(26, 26, 26)
@@ -474,26 +594,83 @@ public void ConfigInicial(){
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Tipo de espacio"));
+        panelEspacio.setBorder(javax.swing.BorderFactory.createTitledBorder("Tipo de espacio"));
 
         cboEspacios.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         cboEspacios.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Áreas de circulación, corredores", "Escaleras", "Vestidores, baños, cuartos de servicio", "Almácenes, bodegas", "Oficinas de tipo general, mecanografía y computación", "Oficinas abiertas", "Oficinas de dibujo", "Salas de conferencia" }));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        javax.swing.GroupLayout panelEspacioLayout = new javax.swing.GroupLayout(panelEspacio);
+        panelEspacio.setLayout(panelEspacioLayout);
+        panelEspacioLayout.setHorizontalGroup(
+            panelEspacioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelEspacioLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(cboEspacios, 0, 0, Short.MAX_VALUE)
                 .addContainerGap())
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        panelEspacioLayout.setVerticalGroup(
+            panelEspacioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelEspacioLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(cboEspacios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        panelPiso.setBorder(javax.swing.BorderFactory.createTitledBorder("Piso"));
+
+        grupoPiso.add(optPisoColor);
+        optPisoColor.setText("Color");
+        optPisoColor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                optPisoColorActionPerformed(evt);
+            }
+        });
+
+        grupoPiso.add(optPisoSuperficie);
+        optPisoSuperficie.setText("Superficie");
+        optPisoSuperficie.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                optPisoSuperficieActionPerformed(evt);
+            }
+        });
+
+        grupoPiso.add(optPisoAcabado);
+        optPisoAcabado.setText("Acabado");
+        optPisoAcabado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                optPisoAcabadoActionPerformed(evt);
+            }
+        });
+
+        cboReflecPiso.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        javax.swing.GroupLayout panelPisoLayout = new javax.swing.GroupLayout(panelPiso);
+        panelPiso.setLayout(panelPisoLayout);
+        panelPisoLayout.setHorizontalGroup(
+            panelPisoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelPisoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelPisoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(panelPisoLayout.createSequentialGroup()
+                        .addComponent(optPisoColor)
+                        .addGap(45, 45, 45)
+                        .addComponent(optPisoSuperficie)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(cboReflecPiso, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(25, 25, 25)
+                .addComponent(optPisoAcabado)
+                .addGap(40, 40, 40))
+        );
+        panelPisoLayout.setVerticalGroup(
+            panelPisoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelPisoLayout.createSequentialGroup()
+                .addGroup(panelPisoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(optPisoColor)
+                    .addComponent(optPisoSuperficie)
+                    .addComponent(optPisoAcabado))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(cboReflecPiso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 27, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout panelSeleccionLayout = new javax.swing.GroupLayout(panelSeleccion);
@@ -503,15 +680,17 @@ public void ConfigInicial(){
             .addGroup(panelSeleccionLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panelSeleccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(panelSeleccionLayout.createSequentialGroup()
-                        .addComponent(panelSistemaIluminación, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(panelEnsuciamiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(panelLuminaria, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(panelPiso, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(panelSeleccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(panelSeleccionLayout.createSequentialGroup()
+                            .addComponent(panelSistemaIluminación, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(panelEnsuciamiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(panelLuminaria, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGap(18, 18, 18)
                 .addGroup(panelSeleccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(panelMantenimiento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(panelEspacio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(54, Short.MAX_VALUE))
         );
         panelSeleccionLayout.setVerticalGroup(
@@ -522,12 +701,14 @@ public void ConfigInicial(){
                     .addGroup(panelSeleccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(panelSistemaIluminación, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(panelEnsuciamiento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(panelMantenimiento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(panelSeleccionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(panelLuminaria, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(177, Short.MAX_VALUE))
+                    .addComponent(panelEspacio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(panelPiso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(59, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -619,9 +800,35 @@ public void ConfigInicial(){
             info=info+"Se recomienda un IRC de "+IRC+"\n";
             info=info+"Se recomienda una Temperatura de color con "+Tcolor+"\n";
             
+            //Asigna la reflectancia del piso
+            ReflecPiso();
+            info= info+"La Reflectancia del piso es "+ReflecPiso+"\n";
+            
            JOptionPane.showMessageDialog(null,info);
        }
     }//GEN-LAST:event_btnCalcularActionPerformed
+
+    private void optPisoColorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optPisoColorActionPerformed
+        cboReflecPiso.removeAllItems();
+        for(int i=0;i<Color.length;i++){
+            cboReflecPiso.addItem(Color[i]);
+        }
+    }//GEN-LAST:event_optPisoColorActionPerformed
+
+    private void optPisoSuperficieActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optPisoSuperficieActionPerformed
+        cboReflecPiso.removeAllItems();
+        for(int i=0;i<Superficie.length;i++){
+            cboReflecPiso.addItem(Superficie[i]);
+        }
+        
+    }//GEN-LAST:event_optPisoSuperficieActionPerformed
+
+    private void optPisoAcabadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optPisoAcabadoActionPerformed
+        cboReflecPiso.removeAllItems();
+        for(int i=0;i<Acabado.length;i++){
+            cboReflecPiso.addItem(Acabado[i]);
+        }
+    }//GEN-LAST:event_optPisoAcabadoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -662,15 +869,15 @@ public void ConfigInicial(){
     private javax.swing.JButton btnCalcular;
     private javax.swing.JComboBox<String> cboEspacios;
     private javax.swing.JComboBox<String> cboLuminaria;
+    private javax.swing.JComboBox<String> cboReflecPiso;
     private javax.swing.ButtonGroup grupoEnsuciamiento;
     private javax.swing.ButtonGroup grupoMantenimiento;
+    private javax.swing.ButtonGroup grupoPiso;
     private javax.swing.ButtonGroup grupoSistIlum;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JRadioButton optDebil;
     private javax.swing.JRadioButton optDifusa;
     private javax.swing.JRadioButton optDirecta;
@@ -678,11 +885,17 @@ public void ConfigInicial(){
     private javax.swing.JRadioButton optIndirecta;
     private javax.swing.JRadioButton optMediano;
     private javax.swing.JRadioButton optOptimo;
+    private javax.swing.JRadioButton optPisoAcabado;
+    private javax.swing.JRadioButton optPisoColor;
+    private javax.swing.JRadioButton optPisoSuperficie;
     private javax.swing.JRadioButton optSemidirecta;
     private javax.swing.JRadioButton optSinMantenimiento;
     private javax.swing.JPanel panelEnsuciamiento;
+    private javax.swing.JPanel panelEspacio;
     private javax.swing.JPanel panelIngresoDatos;
     private javax.swing.JPanel panelLuminaria;
+    private javax.swing.JPanel panelMantenimiento;
+    private javax.swing.JPanel panelPiso;
     private javax.swing.JPanel panelSeleccion;
     private javax.swing.JPanel panelSistemaIluminación;
     private javax.swing.JTextField txtAlturaTW;
